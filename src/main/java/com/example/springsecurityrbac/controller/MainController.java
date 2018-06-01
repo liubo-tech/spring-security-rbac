@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
-    public static final String AA ="USER_VIEW";
 
     @RequestMapping("/")
     public String root() {
@@ -19,7 +18,7 @@ public class MainController {
         return "index";
     }
 
-    @PreAuthorize("hasAuthority(T(com.example.springsecurityrbac.controller.MainController).AA)")
+    @PreAuthorize("hasAuthority(T(com.example.springsecurityrbac.config.PermissionContact).USER_VIEW)")
     @RequestMapping("/user/index")
     public String userIndex() {
         return "user/index";

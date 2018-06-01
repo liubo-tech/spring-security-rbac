@@ -35,7 +35,6 @@ public class SecurityUserService implements UserDetailsService {
                 .where(UserDynamicSqlSupport.username,isEqualTo(username))
                 .build().render(RenderingStrategy.MYBATIS3);
 
-
         Map<String,Object> parameter = new HashMap<>();
         parameter.put("#{username}",username);
         User user = userMapper.selectOne(selectStatement);
@@ -56,8 +55,6 @@ public class SecurityUserService implements UserDetailsService {
             });
             user.setAuthorities(sga);
         }
-
-
 
         return user;
     }
